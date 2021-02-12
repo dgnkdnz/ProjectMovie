@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieListCollectionViewCell" id="bAC-kc-iIB" customClass="MovieListCollectionViewCell" customModule="ProjectMovie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="158" height="139"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gT2-A8-HU2">
+                <rect key="frame" x="0.0" y="0.0" width="158" height="139"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O5R-LQ-qmh">
+                        <rect key="frame" x="0.0" y="0.0" width="158" height="139"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ato-ol-0bG">
+                        <rect key="frame" x="0.0" y="110.5" width="158" height="28.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnN-i3-eh9">
+                                <rect key="frame" x="4" y="4" width="150" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wnN-i3-eh9" firstAttribute="top" secondItem="Ato-ol-0bG" secondAttribute="top" constant="4" id="dlC-wT-AWC"/>
+                            <constraint firstAttribute="trailing" secondItem="wnN-i3-eh9" secondAttribute="trailing" constant="4" id="kHw-do-9sf"/>
+                            <constraint firstItem="wnN-i3-eh9" firstAttribute="leading" secondItem="Ato-ol-0bG" secondAttribute="leading" constant="4" id="mnb-82-zWU"/>
+                            <constraint firstAttribute="bottom" secondItem="wnN-i3-eh9" secondAttribute="bottom" constant="4" id="tqa-6c-vwa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="O5R-LQ-qmh" secondAttribute="trailing" id="Vhk-1U-Yjf"/>
+                    <constraint firstAttribute="bottom" secondItem="O5R-LQ-qmh" secondAttribute="bottom" id="bP3-wO-Vx1"/>
+                    <constraint firstItem="O5R-LQ-qmh" firstAttribute="top" secondItem="gT2-A8-HU2" secondAttribute="top" id="fky-eV-gFJ"/>
+                    <constraint firstItem="Ato-ol-0bG" firstAttribute="leading" secondItem="gT2-A8-HU2" secondAttribute="leading" id="gBv-FF-rdr"/>
+                    <constraint firstItem="O5R-LQ-qmh" firstAttribute="leading" secondItem="gT2-A8-HU2" secondAttribute="leading" id="ibV-Hv-P5G"/>
+                    <constraint firstAttribute="trailing" secondItem="Ato-ol-0bG" secondAttribute="trailing" id="t9P-dE-K9T"/>
+                    <constraint firstAttribute="bottom" secondItem="Ato-ol-0bG" secondAttribute="bottom" id="uFz-ke-ipu"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="158" height="139"/>
+            <connections>
+                <outlet property="imageView" destination="O5R-LQ-qmh" id="NIA-Fd-aMP"/>
+                <outlet property="movieTitleLabel" destination="wnN-i3-eh9" id="oDv-GM-MTg"/>
+            </connections>
+            <point key="canvasLocation" x="110.14492753623189" y="55.245535714285715"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -19,13 +19,27 @@ final class MovieListPresenter: MovieListPresenterProtocol {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.interactor.delegate = self
     }
     
     func load() {
-        #warning("to do")
+        self.interactor.load()
     }
     
     func search(withKeyword keyword: String) {
         #warning("to do")
+    }
+}
+
+extension MovieListPresenter: MovieListInteractorDelegate {
+    func handleOutput(_ output: MovieListInteractorOutput) {
+        switch output {
+        case .showMovies(let popularMovies):
+            let movieListPresenters = popularMovies.movies.map({ MovieListPresentation(movie: $0) })
+            self.view?.handleOutput(.showMovies(movieListPresenters))
+            break
+        default:
+            break
+        }
     }
 }

@@ -17,7 +17,7 @@ protocol MovieListInteractorProtocol: class {
 
 enum MovieListInteractorOutput {
     case setLoading(Bool)
-    case showMovies(Void)
+    case showMovies(PopularMovies)
 }
 
 protocol MovieListInteractorDelegate {
@@ -33,7 +33,7 @@ protocol MovieListPresenterProtocol: BasePresentProtocol {
 
 enum MovieListPresenterOutput {
     case setLoading(Bool)
-    case showMovies(Void)
+    case showMovies([MovieListPresentation])
 }
 
 // MARK: - Router
