@@ -10,5 +10,6 @@ import Foundation
 let app = AppContainer()
 
 final class AppContainer {
+    let movieService = MovieService()
     let router = AppRouter()
 }
