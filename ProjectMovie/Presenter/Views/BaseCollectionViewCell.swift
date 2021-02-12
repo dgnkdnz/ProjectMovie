@@ -5,4 +5,9 @@
 //  Created by Doğan Akdeniz on 12.02.2021.
 //
 
-import Foundation
+import UIKit
+
+open class BaseCollectionViewCell<T: BasePresentationProtocol>: UICollectionViewCell {
+    open func configure(presentation: T) {
+    }
+}

@@ -11,7 +11,7 @@ open class BaseViewController<T: BasePresentProtocol>: UIViewController {
     
     // MARK: - Public Variables
     
-    var presenter: BasePresentProtocol!
+    var presenter: T!
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
