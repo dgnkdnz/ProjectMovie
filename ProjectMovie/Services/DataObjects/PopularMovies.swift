@@ -16,8 +16,8 @@ public struct PopularMovies: Decodable {
         case movies = "results"
     }
     
-    let page: Int
+    var page: Int
     let totalPages: Int
     let totalResults: Int
-    let movies: [Movie]
+    var movies: [Movie]
 }

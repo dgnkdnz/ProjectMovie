@@ -8,7 +8,7 @@
 import UIKit
 
 class MovieListCollectionViewCell: BaseCollectionViewCell<MovieListPresentation> {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet private weak var imageView: UIImageView!
@@ -16,14 +16,28 @@ class MovieListCollectionViewCell: BaseCollectionViewCell<MovieListPresentation>
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 6
+        self.layer.cornerRadius = 12
     }
-
+    
     // MARK: - View Methods
-
-    override func configure(presentation: MovieListPresentation) {
-        super.configure(presentation: presentation)
+    
+    override func configure(presentation: MovieListPresentation,
+                            collectionViewLayout: CollectionViewLayouts) {
+        super.configure(presentation: presentation, collectionViewLayout: collectionViewLayout)
         self.movieTitleLabel.text = presentation.title
-        self.imageView.setImage(withUrl: presentation.posterPath)
+        switch collectionViewLayout {
+        case .oneColumn:
+            UIView.transition(with: self.imageView,
+                              duration: 0.2,
+                              options: .transitionCrossDissolve,
+                              animations: { self.imageView.setImage(withUrl: presentation.backdropPath) },
+                              completion: nil)
+        case .twoColumn:
+            UIView.transition(with: self.imageView,
+                              duration: 0.2,
+                              options: .transitionCrossDissolve,
+                              animations: { self.imageView.setImage(withUrl: presentation.posterPath) },
+                              completion: nil)
+        }
     }
 }

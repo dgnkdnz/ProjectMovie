@@ -15,6 +15,6 @@ final class MovieListPresentation: BasePresentationProtocol {
     init(movie: Movie) {
         self.title = movie.originalTitle
         self.posterPath = URL(string: String(format: "%@%@", ServiceConstants.posterPathBaseUrl, movie.posterPath))!
-        self.backdropPath = URL(string: String(format: "%@%@", ServiceConstants.posterPathBaseUrl, movie.backdropPath))!
+        self.backdropPath = URL(string: String(format: "%@%@", ServiceConstants.backdropPathBaseUrl, movie.backdropPath ?? movie.posterPath))!
     }
 }

@@ -5,3 +5,8 @@
   Created by Doğan Akdeniz on 12.02.2021.
   
 */
+
+/* Movie List */
+"movieList.title" = "Movie List";
+"movieList.searchPlaceHolder" = "Search...";
+"movieList.loadMore" = "Load More";

@@ -10,7 +10,7 @@ import Foundation
 public protocol MovieServiceProtocol {
     
     func fetchPopularMovies(page: Int, completion: @escaping (Result<PopularMovies>) -> Void)
-    func getMovieDetails(completion: @escaping (Result<Movie>) -> Void)
+    func getMovieDetails(WithId id: Int, completion: @escaping (Result<Movie>) -> Void)
 }
 
 public final class MovieService: MovieServiceProtocol {
@@ -47,7 +47,28 @@ public final class MovieService: MovieServiceProtocol {
         task.resume()
     }
     
-    public func getMovieDetails(completion: @escaping (Result<Movie>) -> Void) {
-        #warning("to do")
+    public func getMovieDetails(WithId id: Int, completion: @escaping (Result<Movie>) -> Void) {
+        let urlString = String(format: "%@movie/%d?language=en-US&api_key=%@",
+                               ServiceConstants.endpointAPI,
+                               id,
+                               ServiceConstants.apiKey)
+        let url = URL(string: urlString)
+        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+            guard
+                error == nil,
+                let data = data
+            else {
+                completion(.failure(Error.serializationError(internal: error! )))
+                return
+            }
+            
+            do {
+                let response = try JSONDecoder().decode(Movie.self, from: data)
+                completion(.success(response))
+            } catch {
+                completion(.failure(Error.serializationError(internal: error)))
+            }
+        }
+        task.resume()
     }
 }

@@ -15,11 +15,15 @@ public struct Movie: Decodable {
         case posterPath = "poster_path"
         case originalTitle = "original_title"
         case title
+        case voteCount = "vote_count"
+        case overview
     }
     
     let id: Int
-    let backdropPath: String
+    let backdropPath: String?
     let posterPath: String
     let originalTitle: String
     let title: String
+    let voteCount: Int?
+    let overview: String
 }

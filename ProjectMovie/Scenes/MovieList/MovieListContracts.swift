@@ -12,12 +12,15 @@ import Foundation
 protocol MovieListInteractorProtocol: class {
     var delegate: MovieListInteractorDelegate? { get set }
     func load()
+    func loadMore()
     func search(withKeyword keyword: String)
+    func movieDetail(withIndex index: Int)
 }
 
 enum MovieListInteractorOutput {
     case setLoading(Bool)
-    case showMovies(PopularMovies)
+    case showMovies([Movie])
+    case showMovieDetail(Movie)
 }
 
 protocol MovieListInteractorDelegate {
@@ -28,7 +31,9 @@ protocol MovieListInteractorDelegate {
 
 protocol MovieListPresenterProtocol: BasePresentProtocol {
     func load()
+    func loadMore()
     func search(withKeyword keyword: String)
+    func movieDetail(withIndex index: Int)
 }
 
 enum MovieListPresenterOutput {

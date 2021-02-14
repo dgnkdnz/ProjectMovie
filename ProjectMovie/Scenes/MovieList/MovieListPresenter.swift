@@ -26,8 +26,16 @@ final class MovieListPresenter: MovieListPresenterProtocol {
         self.interactor.load()
     }
     
+    func loadMore() {
+        self.interactor.loadMore()
+    }
+    
+    func movieDetail(withIndex index: Int) {
+        self.interactor.movieDetail(withIndex: index)
+    }
+    
     func search(withKeyword keyword: String) {
-        #warning("to do")
+        self.interactor.search(withKeyword: keyword)
     }
 }
 
@@ -35,8 +43,9 @@ extension MovieListPresenter: MovieListInteractorDelegate {
     func handleOutput(_ output: MovieListInteractorOutput) {
         switch output {
         case .showMovies(let popularMovies):
-            let movieListPresenters = popularMovies.movies.map({ MovieListPresentation(movie: $0) })
+            let movieListPresenters = popularMovies.map({ MovieListPresentation(movie: $0) })
             self.view?.handleOutput(.showMovies(movieListPresenters))
+        case .showMovieDetail(let movie):
             break
         default:
             break

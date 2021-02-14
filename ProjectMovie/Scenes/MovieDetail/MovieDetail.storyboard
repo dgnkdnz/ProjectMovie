@@ -17,18 +17,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xg-P9-Urp">
-                                <rect key="frame" x="160.5" y="464.5" width="93.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="la7-Y0-Ntt" userLabel="NavigationView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                <color key="backgroundColor" red="0.0" green="0.18823529410000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlY-w8-goz" userLabel="NavigationBarView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsL-2w-bJR">
+                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="TsL-2w-bJR" secondAttribute="height" multiplier="1:1" id="TIH-dg-51L"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.96862745100000003" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="icnLeftArrow"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-WU-zIh" customClass="BaseLabel" customModule="ProjectMovie" customModuleProvider="target">
+                                        <rect key="frame" x="181.5" y="8" width="51.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.96862745100000003" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2R-LY-DNa">
+                                        <rect key="frame" x="384" y="10" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="T2R-LY-DNa" secondAttribute="height" multiplier="1:1" id="ihR-MC-U1U"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.96862745100000003" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="icnStar"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.18823529410000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="TsL-2w-bJR" firstAttribute="leading" secondItem="QlY-w8-goz" secondAttribute="leading" constant="10" id="6c9-06-LUp"/>
+                                    <constraint firstItem="LPn-WU-zIh" firstAttribute="centerY" secondItem="QlY-w8-goz" secondAttribute="centerY" id="6fc-fM-emF"/>
+                                    <constraint firstItem="TsL-2w-bJR" firstAttribute="height" secondItem="QlY-w8-goz" secondAttribute="height" constant="-20" id="978-kw-bf1"/>
+                                    <constraint firstItem="T2R-LY-DNa" firstAttribute="centerY" secondItem="QlY-w8-goz" secondAttribute="centerY" id="HZj-d1-qes"/>
+                                    <constraint firstAttribute="trailing" secondItem="T2R-LY-DNa" secondAttribute="trailing" constant="10" id="Nct-IG-MfY"/>
+                                    <constraint firstItem="T2R-LY-DNa" firstAttribute="height" secondItem="QlY-w8-goz" secondAttribute="height" constant="-20" id="Ryn-6i-YPo"/>
+                                    <constraint firstItem="TsL-2w-bJR" firstAttribute="centerY" secondItem="QlY-w8-goz" secondAttribute="centerY" id="ngm-z5-uy0"/>
+                                    <constraint firstAttribute="height" constant="40" id="sfU-qJ-bIa"/>
+                                    <constraint firstItem="LPn-WU-zIh" firstAttribute="centerX" secondItem="QlY-w8-goz" secondAttribute="centerX" id="tzF-Ob-m7f"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y5S-pY-Tid"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2xg-P9-Urp" firstAttribute="centerX" secondItem="Y5S-pY-Tid" secondAttribute="centerX" id="ZV6-AG-eSw"/>
-                            <constraint firstItem="2xg-P9-Urp" firstAttribute="centerY" secondItem="Y5S-pY-Tid" secondAttribute="centerY" id="lWi-aT-QP2"/>
+                            <constraint firstItem="QlY-w8-goz" firstAttribute="top" secondItem="la7-Y0-Ntt" secondAttribute="bottom" id="37g-Kt-wFw"/>
+                            <constraint firstAttribute="trailing" secondItem="QlY-w8-goz" secondAttribute="trailing" id="A9L-Hi-Zf8"/>
+                            <constraint firstItem="la7-Y0-Ntt" firstAttribute="leading" secondItem="Zzp-Ti-Okz" secondAttribute="leading" id="Bm5-Qy-Bsg"/>
+                            <constraint firstAttribute="trailing" secondItem="la7-Y0-Ntt" secondAttribute="trailing" id="FPN-hC-C05"/>
+                            <constraint firstItem="la7-Y0-Ntt" firstAttribute="top" secondItem="Zzp-Ti-Okz" secondAttribute="top" id="WkF-wf-7BJ"/>
+                            <constraint firstItem="Y5S-pY-Tid" firstAttribute="top" secondItem="la7-Y0-Ntt" secondAttribute="bottom" id="hWv-lc-mAX"/>
+                            <constraint firstItem="QlY-w8-goz" firstAttribute="leading" secondItem="Zzp-Ti-Okz" secondAttribute="leading" id="yCw-O6-NkI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EnY-K5-Z4X"/>
@@ -57,6 +99,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icnLeftArrow" width="384" height="322"/>
+        <image name="icnStar" width="50" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
