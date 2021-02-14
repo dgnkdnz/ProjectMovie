@@ -44,7 +44,7 @@ enum MovieListPresenterOutput {
 // MARK: - Router
 
 enum MovieListRoute {
-    case detail
+    case detail(Movie)
 }
 
 protocol MovieListRouterProtocol: class {

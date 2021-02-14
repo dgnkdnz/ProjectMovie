@@ -46,6 +46,7 @@ extension MovieListPresenter: MovieListInteractorDelegate {
             let movieListPresenters = popularMovies.map({ MovieListPresentation(movie: $0) })
             self.view?.handleOutput(.showMovies(movieListPresenters))
         case .showMovieDetail(let movie):
+            self.router.navigate(to: .detail(movie))
             break
         default:
             break

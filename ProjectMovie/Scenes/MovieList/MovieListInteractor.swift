@@ -13,7 +13,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
     
     private let service: MovieServiceProtocol
     private var popularMovies: PopularMovies?
-    private var filteredMovies: [Movie]?
+    private var filteredMovies: [Movie]!
     
     // MARK: - Public Variables
     
@@ -23,6 +23,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
     
     init(service: MovieServiceProtocol) {
         self.service = service
+        self.filteredMovies = []
     }
     
     // MARK: - Interactor Methods
@@ -44,6 +45,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
         }
         
         if keyword.count == 0 {
+            self.filteredMovies = []
             self.delegate?.handleOutput(.showMovies(popularMovies.movies))
             return
         }
@@ -58,11 +60,13 @@ final class MovieListInteractor: MovieListInteractorProtocol {
     
     func movieDetail(withIndex index: Int) {
         guard let movies = self.popularMovies else { return }
-        let movie = movies.movies[index]
+        let movie = self.filteredMovies.isEmpty ? movies.movies[index] : self.filteredMovies[index]
         self.service.getMovieDetails(WithId: movie.id) { [weak self] result in
             switch result {
             case .success(let movie):
-                print(movie)
+                DispatchQueue.main.async {
+                    self?.delegate?.handleOutput(.showMovieDetail(movie))
+                }
             case .failure(let error):
                 print(error)
             }

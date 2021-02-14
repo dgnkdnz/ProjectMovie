@@ -16,6 +16,12 @@ final class MovieListRouter: MovieListRouterProtocol {
     }
     
     func navigate(to route: MovieListRoute) {
-        #warning("to do")
+        switch route {
+        case .detail(let movie):
+            let movieDetailView = MovieDetailBuilder.Build(withMovie: movie)
+            self.view?.show(movieDetailView, sender: nil)
+        default:
+            break
+        }
     }
 }
