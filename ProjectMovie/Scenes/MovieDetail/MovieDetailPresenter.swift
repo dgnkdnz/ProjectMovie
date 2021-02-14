@@ -12,16 +12,24 @@ final class MovieDetailPresenter: MovieDetailPresenterProtocol {
     private weak var view: MovieDetailViewProtocol?
     private let interactor: MovieDetailInteractorProtocol
     private let router: MovieDetailRouterProtocol
+    private let movie: Movie!
     
     init(view: MovieDetailViewProtocol,
          interactor: MovieDetailInteractorProtocol,
-         router: MovieDetailRouterProtocol) {
+         router: MovieDetailRouterProtocol,
+         movie: Movie) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.movie = movie
     }
     
     func load() {
-        #warning("to do")
+        let moviePresentation = MovieDetailPresentation(movie: self.movie)
+        self.view?.handleOutput(.showMovieDetail(moviePresentation))
+    }
+    
+    func goBack() {
+        self.router.navigate(to: .back)
     }
 }

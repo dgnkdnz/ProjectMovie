@@ -24,10 +24,12 @@ protocol MovieDetailInteractorDelegate {
 
 protocol MovieDetailPresenterProtocol: BasePresentProtocol {
     func load()
+    func goBack()
 }
 
 enum MovieDetailPresenterOutput {
     case setLoading(Bool)
+    case showMovieDetail(MovieDetailPresentation)
 }
 
 // MARK: - Router

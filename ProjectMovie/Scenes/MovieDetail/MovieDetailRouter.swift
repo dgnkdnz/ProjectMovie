@@ -16,6 +16,6 @@ final class MovieDetailRouter: MovieDetailRouterProtocol {
     }
     
     func navigate(to route: MovieDetailRoute) {
-        #warning("to do")
+        self.view?.navigationController?.popViewController(animated: true)
     }
 }
