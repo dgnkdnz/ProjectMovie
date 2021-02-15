@@ -13,8 +13,7 @@ protocol MovieListInteractorProtocol: class {
     var delegate: MovieListInteractorDelegate? { get set }
     func load()
     func loadMore()
-    func search(withKeyword keyword: String)
-    func movieDetail(withIndex index: Int)
+    func movieDetail(withMovieId id: Int)
 }
 
 enum MovieListInteractorOutput {
@@ -32,6 +31,7 @@ protocol MovieListInteractorDelegate {
 protocol MovieListPresenterProtocol: BasePresentProtocol {
     func load()
     func loadMore()
+    func reloadMovie()
     func search(withKeyword keyword: String)
     func movieDetail(withIndex index: Int)
 }

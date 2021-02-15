@@ -9,7 +9,7 @@ import Foundation
 
 public protocol MovieServiceProtocol {
     
-    func fetchPopularMovies(page: Int, completion: @escaping (Result<PopularMovies>) -> Void)
+    func fetchPopularMovies(page: Int, completion: @escaping (Result<PopularMoviesResponse>) -> Void)
     func getMovieDetails(WithId id: Int, completion: @escaping (Result<Movie>) -> Void)
 }
 
@@ -20,7 +20,7 @@ public final class MovieService: MovieServiceProtocol {
         case networkError(internal: Swift.Error)
     }
     
-    public func fetchPopularMovies(page: Int, completion: @escaping (Result<PopularMovies>) -> Void) {
+    public func fetchPopularMovies(page: Int, completion: @escaping (Result<PopularMoviesResponse>) -> Void) {
         let urlString = String(format: "%@movie/popular/?language=en-US&api_key=%@&page=%d",
                                ServiceConstants.endpointAPI,
                                ServiceConstants.apiKey,
@@ -37,7 +37,7 @@ public final class MovieService: MovieServiceProtocol {
             }
             
             do {
-                let response = try JSONDecoder().decode(PopularMovies.self, from: data)
+                let response = try JSONDecoder().decode(PopularMoviesResponse.self, from: data)
                 completion(.success(response))
             } catch {
                 completion(.failure(Error.serializationError(internal: error)))

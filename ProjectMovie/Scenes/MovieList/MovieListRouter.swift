@@ -20,8 +20,6 @@ final class MovieListRouter: MovieListRouterProtocol {
         case .detail(let movie):
             let movieDetailView = MovieDetailBuilder.Build(withMovie: movie)
             self.view?.show(movieDetailView, sender: nil)
-        default:
-            break
         }
     }
 }

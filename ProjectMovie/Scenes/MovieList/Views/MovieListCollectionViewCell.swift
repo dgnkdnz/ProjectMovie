@@ -12,6 +12,7 @@ class MovieListCollectionViewCell: BaseCollectionViewCell<MovieListPresentation>
     // MARK: - IBOutlets
     
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var favoriteImageView: UIImageView!
     @IBOutlet private weak var movieTitleLabel: UILabel!
     
     override func awakeFromNib() {
@@ -25,6 +26,7 @@ class MovieListCollectionViewCell: BaseCollectionViewCell<MovieListPresentation>
                             collectionViewLayout: CollectionViewLayouts) {
         super.configure(presentation: presentation, collectionViewLayout: collectionViewLayout)
         self.movieTitleLabel.text = presentation.title
+        self.favoriteImageView.alpha = presentation.isFavorite ? 1 : 0
         switch collectionViewLayout {
         case .oneColumn:
             UIView.transition(with: self.imageView,

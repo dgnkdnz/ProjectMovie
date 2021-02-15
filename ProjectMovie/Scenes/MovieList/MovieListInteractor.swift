@@ -12,8 +12,8 @@ final class MovieListInteractor: MovieListInteractorProtocol {
     // MARK: - Private Variables
     
     private let service: MovieServiceProtocol
-    private var popularMovies: PopularMovies?
-    private var filteredMovies: [Movie]!
+    private var popularMoviesResponse: PopularMoviesResponse?
+    private let userDefaultsService: UserDefaulsServiceProtocol
     
     // MARK: - Public Variables
     
@@ -21,9 +21,9 @@ final class MovieListInteractor: MovieListInteractorProtocol {
     
     // MARK: - Initialization Methods
     
-    init(service: MovieServiceProtocol) {
+    init(service: MovieServiceProtocol, userDefaultsService: UserDefaulsServiceProtocol) {
         self.service = service
-        self.filteredMovies = []
+        self.userDefaultsService = userDefaultsService
     }
     
     // MARK: - Interactor Methods
@@ -33,35 +33,12 @@ final class MovieListInteractor: MovieListInteractorProtocol {
     }
     
     func loadMore() {
-        guard let popularMovies = self.popularMovies else { return }
-        self.fetchMovies(withPage: popularMovies.page + 1)
+        guard let popularMoviesResponse = self.popularMoviesResponse else { return }
+        self.fetchMovies(withPage: popularMoviesResponse.page + 1)
     }
     
-    func search(withKeyword keyword: String) {
-        guard
-            let popularMovies = self.popularMovies
-        else {
-            return
-        }
-        
-        if keyword.count == 0 {
-            self.filteredMovies = []
-            self.delegate?.handleOutput(.showMovies(popularMovies.movies))
-            return
-        }
-        
-        self.filteredMovies = popularMovies.movies.filter({
-            $0.originalTitle.lowercased().contains(keyword.lowercased()) ||
-            $0.title.lowercased().contains(keyword.lowercased())
-        })
-        
-        self.delegate?.handleOutput(.showMovies(self.filteredMovies!))
-    }
-    
-    func movieDetail(withIndex index: Int) {
-        guard let movies = self.popularMovies else { return }
-        let movie = self.filteredMovies.isEmpty ? movies.movies[index] : self.filteredMovies[index]
-        self.service.getMovieDetails(WithId: movie.id) { [weak self] result in
+    func movieDetail(withMovieId id: Int) {
+        self.service.getMovieDetails(WithId: id) { [weak self] result in
             switch result {
             case .success(let movie):
                 DispatchQueue.main.async {
@@ -79,18 +56,22 @@ final class MovieListInteractor: MovieListInteractorProtocol {
         self.service.fetchPopularMovies(page: page) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let popularMovies):
-                if self.popularMovies == nil || self.popularMovies!.movies.isEmpty {
-                    self.popularMovies = popularMovies
+            case .success(let popularMoviesResponse):
+                var movies = popularMoviesResponse.movies
+                for index in movies.indices {
+                    movies[index].isFavorite = self.userDefaultsService.any(withId: movies[index].id)
+                }
+                if self.popularMoviesResponse == nil || self.popularMoviesResponse!.movies.isEmpty {
+                    self.popularMoviesResponse = popularMoviesResponse
                 } else {
-                    self.popularMovies!.page = popularMovies.page
-                    self.popularMovies!.movies.append(contentsOf: popularMovies.movies)
+                    self.popularMoviesResponse!.page = popularMoviesResponse.page
                 }
                 DispatchQueue.main.async {
-                    self.delegate?.handleOutput(.showMovies(self.popularMovies!.movies))
+                    self.delegate?.handleOutput(.showMovies(movies))
                 }
                 break
             case .failure(let error):
+                #warning("to do")
                 break
             }
         }

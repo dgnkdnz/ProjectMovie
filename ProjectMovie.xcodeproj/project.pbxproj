@@ -35,7 +35,6 @@
 		99308DE125D691CF00CF672E /* MovieListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99308DDF25D691CF00CF672E /* MovieListCollectionViewCell.xib */; };
 		99308DE725D6954A00CF672E /* MovieListPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99308DE625D6954A00CF672E /* MovieListPresentation.swift */; };
 		99308DED25D6965400CF672E /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99308DEC25D6965400CF672E /* MovieService.swift */; };
-		99308DF125D6974900CF672E /* PopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99308DF025D6974900CF672E /* PopularMovies.swift */; };
 		99308DF525D6979D00CF672E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99308DF425D6979D00CF672E /* Movie.swift */; };
 		99308DFB25D69D9300CF672E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99308DFA25D69D9300CF672E /* Result.swift */; };
 		99308E0525D69F5300CF672E /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99308E0425D69F5300CF672E /* ServiceConstants.swift */; };
@@ -50,6 +49,7 @@
 		99AC09C325D7225D00952E25 /* MovieListCollectionViewFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99AC09C225D7225D00952E25 /* MovieListCollectionViewFooterCell.xib */; };
 		99D138F525DA85B6002D4D87 /* LocalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D138F425DA85B6002D4D87 /* LocalDataService.swift */; };
 		99D138F825DA86F9002D4D87 /* MovieDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D138F725DA86F9002D4D87 /* MovieDetailInteractor.swift */; };
+		99D138FD25DA9BA6002D4D87 /* PopularMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D138FC25DA9BA6002D4D87 /* PopularMoviesResponse.swift */; };
 		99DA3A0625D7D9D2005BB272 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DA3A0525D7D9D2005BB272 /* BaseButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +85,6 @@
 		99308DDF25D691CF00CF672E /* MovieListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListCollectionViewCell.xib; sourceTree = "<group>"; };
 		99308DE625D6954A00CF672E /* MovieListPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresentation.swift; sourceTree = "<group>"; };
 		99308DEC25D6965400CF672E /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
-		99308DF025D6974900CF672E /* PopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovies.swift; sourceTree = "<group>"; };
 		99308DF425D6979D00CF672E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		99308DFA25D69D9300CF672E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		99308E0425D69F5300CF672E /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		99AC09C225D7225D00952E25 /* MovieListCollectionViewFooterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListCollectionViewFooterCell.xib; sourceTree = "<group>"; };
 		99D138F425DA85B6002D4D87 /* LocalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataService.swift; sourceTree = "<group>"; };
 		99D138F725DA86F9002D4D87 /* MovieDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailInteractor.swift; sourceTree = "<group>"; };
+		99D138FC25DA9BA6002D4D87 /* PopularMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesResponse.swift; sourceTree = "<group>"; };
 		99DA3A0525D7D9D2005BB272 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,6 +307,7 @@
 		99308DEB25D6963400CF672E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				99D138FB25DA9B89002D4D87 /* Messages */,
 				99308E0325D69F4600CF672E /* Constants */,
 				99308DEF25D6972D00CF672E /* DataObjects */,
 				99308DEC25D6965400CF672E /* MovieService.swift */,
@@ -319,7 +320,6 @@
 		99308DEF25D6972D00CF672E /* DataObjects */ = {
 			isa = PBXGroup;
 			children = (
-				99308DF025D6974900CF672E /* PopularMovies.swift */,
 				99308DF425D6979D00CF672E /* Movie.swift */,
 			);
 			path = DataObjects;
@@ -364,6 +364,14 @@
 				99DA3A0525D7D9D2005BB272 /* BaseButton.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		99D138FB25DA9B89002D4D87 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				99D138FC25DA9BA6002D4D87 /* PopularMoviesResponse.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,6 +464,7 @@
 				99308E0F25D6AAD900CF672E /* BasePresentationProtocol.swift in Sources */,
 				99308DD425D66FB500CF672E /* MovieDetailPresenter.swift in Sources */,
 				99308DE025D691CF00CF672E /* MovieListCollectionViewCell.swift in Sources */,
+				99D138FD25DA9BA6002D4D87 /* PopularMoviesResponse.swift in Sources */,
 				99308D7B25D6621200CF672E /* AppRouter.swift in Sources */,
 				99308DB125D6681100CF672E /* BasePresentProtocol.swift in Sources */,
 				99308D6025D6617300CF672E /* AppDelegate.swift in Sources */,
@@ -472,7 +481,6 @@
 				99308E1225D6AD2400CF672E /* UIImageViewExtension.swift in Sources */,
 				99308E0525D69F5300CF672E /* ServiceConstants.swift in Sources */,
 				99308DDA25D66FDC00CF672E /* MovieDetailViewController.swift in Sources */,
-				99308DF125D6974900CF672E /* PopularMovies.swift in Sources */,
 				99D138F525DA85B6002D4D87 /* LocalDataService.swift in Sources */,
 				99DA3A0625D7D9D2005BB272 /* BaseButton.swift in Sources */,
 				99308DCE25D66F9900CF672E /* MovieDetailBuilder.swift in Sources */,

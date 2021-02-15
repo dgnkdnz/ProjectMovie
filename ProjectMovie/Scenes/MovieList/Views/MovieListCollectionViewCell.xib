@@ -38,9 +38,19 @@
                             <constraint firstAttribute="bottom" secondItem="wnN-i3-eh9" secondAttribute="bottom" constant="4" id="tqa-6c-vwa"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icnStarFilled" translatesAutoresizingMaskIntoConstraints="NO" id="IJH-tC-66b">
+                        <rect key="frame" x="122" y="4" width="32" height="32"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="gZl-mz-S0i"/>
+                            <constraint firstAttribute="height" constant="32" id="ilZ-9P-zfI"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="IJH-tC-66b" firstAttribute="top" secondItem="gT2-A8-HU2" secondAttribute="top" constant="4" id="V42-Um-26a"/>
                     <constraint firstAttribute="trailing" secondItem="O5R-LQ-qmh" secondAttribute="trailing" id="Vhk-1U-Yjf"/>
+                    <constraint firstAttribute="trailing" secondItem="IJH-tC-66b" secondAttribute="trailing" constant="4" id="Zd9-Sb-Eaw"/>
                     <constraint firstItem="Ato-ol-0bG" firstAttribute="bottom" secondItem="O5R-LQ-qmh" secondAttribute="bottom" id="bP3-wO-Vx1"/>
                     <constraint firstItem="O5R-LQ-qmh" firstAttribute="top" secondItem="gT2-A8-HU2" secondAttribute="top" id="fky-eV-gFJ"/>
                     <constraint firstItem="Ato-ol-0bG" firstAttribute="leading" secondItem="gT2-A8-HU2" secondAttribute="leading" id="gBv-FF-rdr"/>
@@ -51,10 +61,14 @@
             </collectionViewCellContentView>
             <size key="customSize" width="158" height="139"/>
             <connections>
+                <outlet property="favoriteImageView" destination="IJH-tC-66b" id="wQI-lI-SxF"/>
                 <outlet property="imageView" destination="O5R-LQ-qmh" id="NIA-Fd-aMP"/>
                 <outlet property="movieTitleLabel" destination="wnN-i3-eh9" id="oDv-GM-MTg"/>
             </connections>
             <point key="canvasLocation" x="110.14492753623189" y="55.245535714285715"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icnStarFilled" width="50" height="49"/>
+    </resources>
 </document>

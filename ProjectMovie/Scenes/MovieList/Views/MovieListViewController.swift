@@ -34,6 +34,11 @@ class MovieListViewController: BaseViewController<MovieListPresenter>, MovieList
         self.presenter.load()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.reloadMovie()
+    }
+    
     // MARK: - Initialization Methods
     
     override func prepare() {

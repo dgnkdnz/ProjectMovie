@@ -1,14 +1,13 @@
 //
-//  PopularMovies.swift
+//  PopularMoviesResponse.swift
 //  ProjectMovie
 //
-//  Created by Doğan Akdeniz on 12.02.2021.
+//  Created by Doğan Akdeniz on 15.02.2021.
 //
 
 import Foundation
 
-public struct PopularMovies: Decodable {
-    
+public final class PopularMoviesResponse: Decodable {
     public enum CodingKeys: String, CodingKey {
         case page
         case totalPages = "total_pages"

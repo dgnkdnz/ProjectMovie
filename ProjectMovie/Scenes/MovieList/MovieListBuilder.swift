@@ -12,7 +12,7 @@ final class MovieListBuilder {
         let storyboard = UIStoryboard(storyboard: .movieList)
         let view = storyboard.instantiateViewController(withStoryboardIdentifiers: .movieListViewController) as! MovieListViewController
         let router = MovieListRouter(view: view)
-        let interactor = MovieListInteractor(service: app.movieService)
+        let interactor = MovieListInteractor(service: app.movieService, userDefaultsService: app.userDefaultsService)
         let presenter = MovieListPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
         return view

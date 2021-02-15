@@ -17,6 +17,7 @@ public struct Movie: Decodable {
         case title
         case voteCount = "vote_count"
         case overview
+        
     }
     
     let id: Int
@@ -26,4 +27,5 @@ public struct Movie: Decodable {
     let title: String
     let voteCount: Int?
     let overview: String
+    var isFavorite: Bool?
 }

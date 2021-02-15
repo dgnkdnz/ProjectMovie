@@ -11,5 +11,6 @@ let app = AppContainer()
 
 final class AppContainer {
     let movieService = MovieService()
+    let userDefaultsService = UserDefaultsService.shared
     let router = AppRouter()
 }
