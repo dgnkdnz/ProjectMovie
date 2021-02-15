@@ -49,10 +49,14 @@ final class MovieListPresenter: MovieListPresenterProtocol {
         
         if self.filteredMovies != nil && !self.filteredMovies!.isEmpty {
             self.filteredMovies![selectedIndex].isFavorite = UserDefaultsService.shared.any(withId: self.filteredMovies![selectedIndex].id)
+            if let index = self.movies?.firstIndex(where: { $0.id == self.filteredMovies![selectedIndex].id }) {
+                self.movies![index].isFavorite = self.filteredMovies![selectedIndex].isFavorite
+            }
             let presentations = self.filteredMovies!.map({ MovieListPresentation(movie: $0) })
             self.view?.handleOutput(.showMovies(presentations))
         } else {
             movies[selectedIndex].isFavorite = UserDefaultsService.shared.any(withId: movies[selectedIndex].id)
+            self.movies = movies
             let presentations = movies.map({ MovieListPresentation(movie: $0) })
             self.view?.handleOutput(.showMovies(presentations))
         }
