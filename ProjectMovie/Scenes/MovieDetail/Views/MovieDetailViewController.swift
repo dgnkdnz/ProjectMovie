@@ -15,6 +15,7 @@ final class MovieDetailViewController: BaseViewController<MovieDetailPresenter>,
     @IBOutlet private weak var overviewLabel: UILabel!
     @IBOutlet private weak var voteCountLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     // MARK: - Private Variables
     
@@ -34,6 +35,12 @@ final class MovieDetailViewController: BaseViewController<MovieDetailPresenter>,
         case .showMovieDetail(let movie):
             self.movie = movie
             self.setControls(movie)
+        case .favorite(let isFavorite):
+            if isFavorite {
+                self.favoriteButton.setImage(UIImage(named: "icnStarFilled"), for: .normal)
+            } else {
+                self.favoriteButton.setImage(UIImage(named: "icnStar"), for: .normal)
+            }
         default:
             break
         }
@@ -46,7 +53,7 @@ final class MovieDetailViewController: BaseViewController<MovieDetailPresenter>,
     }
     
     @IBAction private func favoriteBtnTapped(_ sender: UIButton!) {
-        #warning("to do")
+        self.presenter.favoriteMovie()
     }
     
     // MARK: - Helper Methods

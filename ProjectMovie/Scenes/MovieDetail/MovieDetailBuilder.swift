@@ -13,7 +13,7 @@ final class MovieDetailBuilder {
         let storyboard = UIStoryboard(storyboard: .movieDetail)
         let view = storyboard.instantiateViewController(withStoryboardIdentifiers: .movieDetailViewController) as! MovieDetailViewController
         let router = MovieDetailRouter(view: view)
-        let interactor = MovieDetailInteractor()
+        let interactor = MovieDetailInteractor(userDefaultsService: UserDefaultsService.shared)
         let presenter = MovieDetailPresenter(view: view, interactor: interactor, router: router, movie: movie)
         view.presenter = presenter
         return view

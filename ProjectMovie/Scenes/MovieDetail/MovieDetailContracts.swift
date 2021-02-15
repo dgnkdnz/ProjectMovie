@@ -9,11 +9,13 @@
 
 protocol MovieDetailInteractorProtocol: class {
     var delegate: MovieDetailInteractorDelegate? { get set }
-    func load()
+    func load(withId id: Int)
+    func favorite(withId id: Int)
 }
 
 enum MovieDetailInteractorOutput {
     case setLoading(Bool)
+    case favorite(Bool)
 }
 
 protocol MovieDetailInteractorDelegate {
@@ -25,11 +27,13 @@ protocol MovieDetailInteractorDelegate {
 protocol MovieDetailPresenterProtocol: BasePresentProtocol {
     func load()
     func goBack()
+    func favoriteMovie()
 }
 
 enum MovieDetailPresenterOutput {
     case setLoading(Bool)
     case showMovieDetail(MovieDetailPresentation)
+    case favorite(Bool)
 }
 
 // MARK: - Router
